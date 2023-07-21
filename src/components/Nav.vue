@@ -1,27 +1,30 @@
 <template>
   <nav>
     <!-- <PersonalRouter :route="route" :buttonText="buttonText" class="logo-link"/> -->
-    <router-link to="/">
-      Home
+    <router-link to="/" class="navLink">
+    <img class="nav-logo" src="../assets/letrablanca.png">
     </router-link>
 
     <ul>
-        <li>
-          <router-link to="/">Task Manager</router-link>
-        </li>
+        <!-- <li>
+          <router-link to="/" class="navLink">Task Manager</router-link>
+        </li> -->
 
         <li>
-          <router-link to="/account">Your Account</router-link>
+          <router-link to="/account" class="navLink">Your Account</router-link>
         </li>
     </ul>
 
     <div>
-      <ul>
-        <li class="log-out-welcome">
-          <p>Welcome, user</p>
+      <ul class="user-log-out">
+        <li class="log-out-welcome navLink">
+          <p class="welcome">Welcome, <strong> {{ userEmail }} </strong></p>
         </li>
         <li>
-          <button @click="signOut" class="button">Log out</button>
+          <!-- <button @click="signOut" class="button">
+            <img class="sign-in-logo" src="../assets/logout.png">
+          </button> -->
+          <img @click="signOut" class="sign-out-logo" src="../assets/logout.png">
         </li>
       </ul>
     </div>
@@ -50,32 +53,65 @@ const userEmail = getUser.email;
 const redirect = useRouter();
 
 const signOut = async () => {
-  try{
-    // call the user store and send the users info to backend to signOut
-    // then redirect user to the homeView
-  } catch (error) {}
+  try {
+    await useUserStore().signOut();
+    redirect.push({ path: "/auth/login"});
+    } catch (error) {}
 };
 
 </script>
 
 <style>
-.navbar-img {
-  width: 90px;
+.nav-logo {
+  width: 100px;
 }
 
 nav {
-  background-color: lightgray;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+}
+
+nav {
+  background-color: #46A997;
   display: flex;
   width: 100%;
   justify-content: space-around;
   align-items: center;
+  max-height: 100px;
 }
 
 nav ul {
   list-style: none;
   padding-inline-start: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+}
+
+/* .user-log-out {
+  display: flex;
+  flex-direction: column;
+} */
+.welcome {
+  display:none;
+}
+
+.button {
+  border-style: none;
+  color: rgb(72, 172, 152);
+  background-color: white;
+  padding: 1rem 2rem;
+}
+
+.sign-out-logo {
+  max-width:60px;
+}
+
+.sign-out-logo:hover {
+cursor: pointer
 }
 </style>

@@ -3,7 +3,8 @@
 
     <div class="header">
       <div class="header-description">
-        <h3 class="header-title">Register to ToDo App</h3>
+        <img class="sign-in-logo" src="../assets/todoverde.png">
+        <h3 class="header-title">Register</h3>
         <p class="header-subtitle">Start organizing your tasks!</p>
       </div>
     </div>
@@ -15,7 +16,7 @@
           <input
             type="email"
             class="input-field"
-            placeholder="example@gmail.com"
+            placeholder="example@mail.com"
             id="email"
             v-model="email"
             required
@@ -44,6 +45,8 @@
           />
         </div>
         <button class="button" type="submit">Sign Up</button>
+
+        <div class="question-account">
         <p>
           Have an account?
           <PersonalRouter
@@ -52,6 +55,7 @@
             class="sign-up-link"
           />
         </p>
+      </div>
       </div>
     </form>
 
@@ -104,4 +108,21 @@ const signUp = async () => {
 };
 </script>
 
-<style></style>
+<style>
+.header-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.input-field-label {
+  font-size: 0.75rem;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  display: grid;
+}
+</style>

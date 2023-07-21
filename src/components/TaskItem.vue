@@ -1,29 +1,89 @@
 <template>
-<div class="container">
-    <h3>{{task.title}}</h3>
-    <button @click="deleteTask">Delete {{task.title}}</button>
-</div>
+  <div class="container">
+    <h3 :class="{ crossed: task.is_complete }">{{ editedTitle || task.title }}</h3>
+    <h3 :class="{ crossed: task.is_complete }">{{ editedDescription || task.description }}</h3>
+    <button @click="deleteTask"> x </button>
+    <button :class="{ crossed: task.is_complete }" @click="completeToggle">
+      ✓
+    </button>
+    <button @click="editToggle">Edit</button>
+    <div v-if="updateInput && task.id === selectedTaskId">
+      <input type="text" v-model="editedTitle" placeholder="New title" />
+      <input type="text" v-model="editedDescription" placeholder="New description" />
+      <button @click="updateTask">Update</button>
+      <p v-if="error" class="error-message">{{ error }}</p>
+    </div>
+  </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { useTaskStore } from '../stores/task';
-import { supabase } from '../supabase';
+import { ref, defineProps, defineEmits } from 'vue';
+import { useTaskStore } from "../stores/task";
+import { supabase } from "../supabase";
 
 const taskStore = useTaskStore();
 
+const editedTitle = ref('');
+const editedDescription = ref('');
+const updateInput = ref(false);
+const error = ref('');
+const selectedTaskId = ref(null);
+
 const props = defineProps({
-    task: Object,
+  task: Object,
 });
 
-// Función para borrar la tarea a través de la store. El problema que tendremos aquí (y en NewTask.vue) es que cuando modifiquemos la base de datos los cambios no se verán reflejados en el v-for de Home.vue porque no estamos modificando la variable tasks guardada en Home. Usad el emit para cambiar esto y evitar ningún page refresh.
-const deleteTask = async() => {
-    await taskStore.deleteTask(props.task.id);
+const emits = defineEmits(['update-task', 'delete-task', 'toggle-complete']);
+
+const deleteTask = async () => {
+  await taskStore.deleteTask(props.task.id);
+  emits['delete-task'](props.task.id);
 };
 
+const completeToggle = () => {
+  taskStore.completeTask(props.task.id, !props.task.is_complete);
+  emits['toggle-complete'](props.task.id, !props.task.is_complete);
+};
+
+const editToggle = () => {
+  updateInput.value = !updateInput.value;
+  selectedTaskId.value = props.task.id;
+  editedTitle.value = '';
+  editedDescription.value = '';
+};
+
+const updateTask = async () => {
+  if (!editedTitle.value.trim() && !editedDescription.value.trim()) {
+    error.value = 'Task title or description cannot be empty.';
+    return;
+  }
+
+  error.value = '';
+  updateInput.value = false;
+
+  await taskStore.editTask(props.task.id, {
+    title: editedTitle.value,
+    description: editedDescription.value,
+  });
+
+  emits['update-task']({
+    id: props.task.id,
+    title: editedTitle.value,
+    description: editedDescription.value,
+  });
+
+  editedTitle.value = '';
+  editedDescription.value = '';
+};
 </script>
 
-<style></style>
+<style>
+.crossed {
+  text-decoration: line-through;
+}
+</style>
+
+
 
 <!--
 **Hints**

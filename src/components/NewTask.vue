@@ -1,26 +1,27 @@
 <template>
-    <h1>Add a new Task</h1>
-    <div v-if="showErrorMessage">
-        <p class="error-text">{{ errorMessage }}</p>
-    </div>
-    <div>
-        <div class="input-field">
-            <input type="text" placeholder="Add a Task Title - Listen to Kendrick Lamar" v-model="name">
-        </div>
-        <div class="input-field">
-            <input type="text" placeholder="Add a Task Description - Look up Kendrick Lamar's FEAR album on spotify and listen to the whole album." v-model="description">
-        </div>
-        <button @click="addTask" class="button">Add</button>
-    </div>
+  <h1>Add a new Task</h1>
+  <div v-if="showErrorMessage">
+      <p class="error-text">{{ errorMessage }}</p>
+  </div>
+  <div>
+      <div class="input-field-home">
+          <input type="text" placeholder="Add a Task Title" v-model="name">
+      </div>
+      <div class="input-field-home">
+          <input type="text" placeholder="Add a Task Description" v-model="description">
+      </div>
+      <button @click="addTask" class="button">Add your task</button>
+  </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useTaskStore } from "../stores/task"   
+import { ref, onMounted } from "vue";
+import { useTaskStore } from "../stores/task"
 
 const taskStore = useTaskStore();
 
 // variables para los valors de los inputs
+
 const name = ref('');
 const description = ref('');
 
@@ -29,6 +30,8 @@ const showErrorMessage = ref(false);
 
 // const constant to save a variable that holds the value of the error message
 const errorMessage = ref(null);
+
+const tasks = ref([]);
 
 // Arrow function para crear tareas.
 const addTask = () => {
@@ -52,5 +55,9 @@ if(name.value.length === 0 || description.value.length === 0){
 
 </script>
 
-<style></style>
-  
+<style>
+h2 {
+  font-family: helvetica;
+  font-size: 1.5rem;
+}
+</style>
