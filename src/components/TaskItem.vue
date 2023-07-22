@@ -41,8 +41,8 @@ const deleteTask = async () => {
 };
 
 const completeToggle = () => {
+  props.task.is_complete = !props.task.is_complete;
   taskStore.completeTask(props.task.id, !props.task.is_complete);
-  emits['toggle-complete'](props.task.id, !props.task.is_complete);
 };
 
 const editToggle = () => {
