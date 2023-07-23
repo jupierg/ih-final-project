@@ -26,6 +26,11 @@ export const useTaskStore = defineStore("tasks", () => {
         description: description,
       },
     ]);
+
+    if (error) {
+      console.log('ERRROR')
+    }
+    return data[0];
   };
   // borrar tareas de supabase
   const deleteTask = async (id) => {

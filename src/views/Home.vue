@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <Nav />
-    <NewTask />
+    <NewTask @nueva-tarea-creada="getTasks"/>
     <h1>Tasks:</h1>
     <!-- <TaskItem v-for="task in tasks" :key="task.id" :task="task"
     @delete-task="deleteTask" @toggle-complete="toggleComplete" @edit-task="editTask"
@@ -19,16 +19,14 @@ import NewTask from '../components/NewTask.vue';
 import TaskItem from '../components/TaskItem.vue';
 import Footer from '../components/Footer.vue';
 
+// Variable para guardar las tareas de supabase
 const taskStore = useTaskStore();
-
+const tasks = ref([]);
 // const tasks = computed(() => taskStore.tasksArr);
 
 // onMounted(async () => {
 //   await taskStore.fetchTasks();
 // });
-
-// Variable para guardar las tareas de supabase
-const tasks = ref([]);
 
 // Creamos una función que conecte a la store para conseguir las tareas de supabase
 const getTasks = async() => {
@@ -36,7 +34,6 @@ const getTasks = async() => {
 };
 
 getTasks();
-
 
 </script>
 

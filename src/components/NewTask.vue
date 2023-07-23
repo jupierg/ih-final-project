@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, defineEmits } from "vue";
 import { useTaskStore } from "../stores/task"
 import { supabase } from "../supabase";
 import { useUserStore } from "../stores/user";
@@ -36,24 +36,42 @@ const errorMessage = ref(null);
 
 // const tasks = ref([]);
 
+// Declarar el evento que el componente puede emitir
+const emits = defineEmits(['nueva-tarea-creada']);
+
 // Arrow function para crear tareas.
-const addTask = () => {
-if(name.value.length === 0 || description.value.length === 0){
-    // Primero comprobamos que ningún campo del input esté vacío y lanzamos el error con un timeout para informar al user.
+const addTask = async () => {
+  try {
+    // Verificar que los campos no estén vacíos
+    if (name.value.length === 0 || description.value.length === 0) {
+      // Primero comprobamos que ningún campo del input esté vacío y lanzamos el error con un timeout para informar al usuario.
+      showErrorMessage.value = true;
+      errorMessage.value = 'The task title or description is empty';
+      setTimeout(() => {
+        showErrorMessage.value = false;
+      }, 5000);
+      return; // Salimos de la función si hay campos vacíos
+    }
 
-    showErrorMessage.value = true;
-    errorMessage.value = 'The task title or description is empty';
-    setTimeout(() => {
-    showErrorMessage.value = false;
-    }, 5000);
+    // Aquí mandamos los valores a la store para crear la nueva Task.
 
-} else {
-    // Aquí mandamos los valores a la store para crear la nueva Task. Esta parte de la función tenéis que refactorizarla para que funcione con emit y el addTask del store se llame desde Home.vue.
+    const response = await taskStore.addTask(name.value, description.value);
+    console.log(response); // Agregar esta línea para obtener más detalles de la respuesta
 
-    taskStore.addTask(name.value, description.value);
-    name.value = '';
-    description.value = '';
-}
+    if (response) {
+      const nuevaTarea = response;
+      // Emitir el evento con la nueva tarea creada
+      emits('nueva-tarea-creada', nuevaTarea);
+
+      // Limpiar los campos del formulario después de crear la tarea
+      name.value = '';
+      description.value = '';
+    } else {
+      console.error('Error al crear la tarea: Respuesta inválida');
+    }
+  } catch (error) {
+    console.error('Error al crear la tarea:', error.message);
+  }
 };
 
 </script>
