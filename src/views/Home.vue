@@ -3,7 +3,10 @@
     <Nav />
     <NewTask />
     <h1>Tasks:</h1>
-    <TaskItem v-for="task in tasks" :key="task.id" :task="task" @delete-task="deleteTask" @toggle-complete="toggleComplete" @edit-task="editTask" />
+    <!-- <TaskItem v-for="task in tasks" :key="task.id" :task="task"
+    @delete-task="deleteTask" @toggle-complete="toggleComplete" @edit-task="editTask"
+    /> -->
+    <TaskItem v-for="task in tasks" :key="task.id" :task="task"/>
   </div>
   <Footer />
 </template>
@@ -18,24 +21,23 @@ import Footer from '../components/Footer.vue';
 
 const taskStore = useTaskStore();
 
-const tasks = computed(() => taskStore.tasksArr);
+// const tasks = computed(() => taskStore.tasksArr);
 
-onMounted(async () => {
-  await taskStore.fetchTasks();
-});
+// onMounted(async () => {
+//   await taskStore.fetchTasks();
+// });
 
-// Function to edit a task
-// const editTask = async (taskId, newValue) => {
-//   try {
-//     // Call the editTask function from the taskStore and await its completion
-//     await taskStore.editTask(taskId, newValue);
-//     // Fetch tasks from the store again to update the tasksArr
-//     tasks.value = await taskStore.fetchTasks();
-//   } catch (error) {
-//     // Handle any errors if the edit was not successful
-//     console.error('Error editing the task:', error);
-//   }
-// };
+// Variable para guardar las tareas de supabase
+const tasks = ref([]);
+
+// Creamos una función que conecte a la store para conseguir las tareas de supabase
+const getTasks = async() => {
+  tasks.value = await taskStore.fetchTasks();
+};
+
+getTasks();
+
+
 </script>
 
 

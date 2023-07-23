@@ -10,13 +10,16 @@
       <div class="input-field-home">
           <input type="text" placeholder="Add a Task Description" v-model="description">
       </div>
-      <button @click="addTask" class="button">Add your task</button>
+      <button @click="addTask" class="button add-task">Add your task</button>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
 import { useTaskStore } from "../stores/task"
+import { supabase } from "../supabase";
+import { useUserStore } from "../stores/user";
+
 
 const taskStore = useTaskStore();
 
@@ -59,5 +62,9 @@ if(name.value.length === 0 || description.value.length === 0){
 h2 {
   font-family: helvetica;
   font-size: 1.5rem;
-}
+};
+
+.add-task:hover {
+cursor: pointer;
+};
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <h3 :class="{ crossed: task.is_complete }">{{ editedTitle || task.title }}</h3>
-    <h3 :class="{ crossed: task.is_complete }">{{ editedDescription || task.description }}</h3>
+    <h3 :class="['task-added', { crossed: task.is_complete }]">{{ editedTitle || task.title }}</h3>
+    <h3 :class="['task-added', { crossed: task.is_complete }]">{{ editedDescription || task.description }}</h3>
     <button @click="deleteTask"> x </button>
     <button :class="{ crossed: task.is_complete }" @click="completeToggle">
       ✓
@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps, defineEmits } from 'vue';
+import { ref, defineProps, defineEmits, onUpdated } from 'vue';
 import { useTaskStore } from "../stores/task";
 import { supabase } from "../supabase";
 
@@ -80,6 +80,14 @@ const updateTask = async () => {
 <style>
 .crossed {
   text-decoration: line-through;
+}
+.container {
+  background-color: bisque;
+}
+
+.task-added {
+  background-color: grey;
+  color: blue;
 }
 </style>
 
