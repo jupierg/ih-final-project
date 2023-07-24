@@ -62,12 +62,15 @@ const signOut = async () => {
 </script>
 
 <style>
-.nav-logo {
-  width: 100px;
+@media (max-width: 768px){
+* {
+  margin: 0;
+  padding: 0;
 }
 
-nav {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+.nav-logo {
+  width: 100px;
+
 }
 
 .navLink {
@@ -82,6 +85,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   max-height: 100px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 nav ul {
@@ -114,4 +118,5 @@ nav ul {
 .sign-out-logo:hover {
 cursor: pointer
 }
+};
 </style>

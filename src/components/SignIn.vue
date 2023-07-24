@@ -2,7 +2,6 @@
 
   <div class="container">
     <img class="sign-in-logo" src="../assets/todoverde.png">
-    <!-- <h3 class="header-title">Log In</h3> -->
     <form @submit.prevent="signIn" class="form-sign-in">
         <div class="form-input">
           <label class="input-field-label"></label>
@@ -18,19 +17,20 @@
         <div class="form-input">
           <label class="input-field-label"></label>
           <input
-            type="password"
+            :type="passwordVisible ? 'text' : 'password'"
             class="input-field"
             placeholder="**********"
             id="password"
             v-model="password"
             required
           />
+        <i class="fa" :class="passwordVisible ? 'fa-eye-slash' : 'fa-eye'" @click="togglePassword('password')"></i>
         </div>
         <button class="button" type="submit"> Log In</button>
     </form>
     <div class="question-account">
     <p>Don't have an account?
-    <PersonalRouter :route="route" :buttonText="buttonText" class="sign-up-link"/></p>
+    <PersonalRouter :route="route" :buttonText="buttonText" class="sign-link"/></p>
     </div>
   </div>
 </template>
@@ -69,9 +69,21 @@ const signIn = async () => {
 
 errorMessage.value = "error";
 
+
+const passwordVisible = ref(false);
+const confirmPasswordVisible = ref(false);
+
+const togglePassword = (field) => {
+  if (field === "password") {
+    passwordVisible.value = !passwordVisible.value;
+  } else if (field === "confirmPassword") {
+    confirmPasswordVisible.value = !confirmPasswordVisible.value;
+  }
+};
 </script>
 
 <style>
+@media (max-width: 768px){
 .sign-in-logo {
   margin-top: 5%;
   max-height: 10%;
@@ -118,7 +130,15 @@ flex-direction: column;
 align-items: center;
 }
 
-.sign-up-link:hover {
+.sign-link:hover {
 cursor: pointer;
 }
+
+form i {
+  margin-left: 80%;
+  margin-top: -17.5%;
+  cursor: pointer;
+  color: white
+}
+};
 </style>

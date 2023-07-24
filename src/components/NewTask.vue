@@ -3,14 +3,14 @@
   <div v-if="showErrorMessage">
       <p class="error-text">{{ errorMessage }}</p>
   </div>
-  <div>
+  <div class="input-fields">
       <div class="input-field-home">
           <input type="text" placeholder="Add a Task Title" v-model="name">
       </div>
       <div class="input-field-home">
           <input type="text" placeholder="Add a Task Description" v-model="description">
       </div>
-      <button @click="addTask" class="button add-task">Add your task</button>
+      <button @click="addTask" class="add-task">Add your task</button>
   </div>
 </template>
 
@@ -77,12 +77,30 @@ const addTask = async () => {
 </script>
 
 <style>
+@media (max-width: 768px){
+h1{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-top: 1.5rem;
+  padding-left: 1.5rem;
+  font-size: 1rem;
+}
+
 h2 {
-  font-family: helvetica;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1.5rem;
+};
+
+.input-field-home {
+  padding-left: 1.5rem;
 };
 
 .add-task:hover {
 cursor: pointer;
 };
+
+button {
+  color: blue;
+  border: none;
+}
+}
 </style>

@@ -78,16 +78,20 @@ const updateTask = async () => {
 </script>
 
 <style>
+@media (max-width: 768px){
+
 .crossed {
   text-decoration: line-through;
+  color: darkgray;
 }
 .container {
   background-color: bisque;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .task-added {
-  background-color: grey;
-  color: blue;
+  color: black;
+}
 }
 </style>
 

@@ -109,6 +109,7 @@ const signUp = async () => {
 </script>
 
 <style>
+@media (max-width: 768px){
 .header-description {
   display: flex;
   flex-direction: column;
@@ -124,5 +125,6 @@ const signUp = async () => {
 
 .form-input {
   display: grid;
+}
 }
 </style>
