@@ -37,7 +37,7 @@ const emits = defineEmits(['update-task', 'delete-task', 'toggle-complete']);
 
 const deleteTask = async () => {
   await taskStore.deleteTask(props.task.id);
-  emits['delete-task'](props.task.id);
+  emits('delete-task', props.task.id);
 };
 
 const completeToggle = () => {
