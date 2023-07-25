@@ -77,30 +77,74 @@ const addTask = async () => {
 </script>
 
 <style>
-@media (max-width: 768px){
 h1{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  padding-top: 1.5rem;
-  padding-left: 1.5rem;
+  padding-left: 7.5%;
   font-size: 1rem;
 }
 
 h2 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1.5rem;
-};
+}
 
-.input-field-home {
-  padding-left: 1.5rem;
-};
+.input-field-home input {
+  background-color: #A3D9C9;
+  min-width: 50%;
+  border-radius: 8%;
+  margin-left: 7.5%;
+}
+
+.add-task {
+  font-family: Helvetica, Arial;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background-color: #46A997;
+  padding: 1.5%;
+  border: none;
+  border-radius: 5%;
+  margin: 3% 0% 3% 50%;
+}
 
 .add-task:hover {
 cursor: pointer;
-};
-
-button {
-  color: blue;
-  border: none;
 }
+
+@media (max-width: 768px){
+h1{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-left: 7.5%;
+  font-size: 1rem;
+}
+
+h2 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5rem;
+}
+
+.input-field-home input {
+  background-color: #A3D9C9;
+  min-width: none;
+  border-radius: 8%;
+  margin-left: 7.5%;
+}
+
+.add-task {
+  font-family: Helvetica, Arial;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  background-color: #46A997;
+  padding: 3%;
+  border: none;
+  border-radius: 8%;
+  margin: 3% 30%;
+}
+
+.add-task:hover {
+cursor: pointer;
+}
+
 }
 </style>

@@ -1,6 +1,10 @@
 <template>
   <div class="wrapper">
     <Nav />
+       <p class="dateFormat">Today is <strong>{{ fechaFormateada }}</strong>
+      <br>
+      Time to task organizing your tasks!
+    </p>
     <NewTask @nueva-tarea-creada="getTasks"/>
     <h1>Tasks:</h1>
     <TaskItem v-for="task in tasks" :key="task.id" :task="task"  @delete-task="getTasks"/>
@@ -10,11 +14,13 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
+import { format } from "date-fns";
 import { useTaskStore } from '../stores/task';
 import Nav from '../components/Nav.vue';
 import NewTask from '../components/NewTask.vue';
 import TaskItem from '../components/TaskItem.vue';
 import Footer from '../components/Footer.vue';
+
 
 // Variable para guardar las tareas de supabase
 const taskStore = useTaskStore();
@@ -28,7 +34,37 @@ const getTasks = async() => {
 
 getTasks();
 
+
+const fechaFormateada = ref("");
+
+onMounted(async () => {
+const fecha = new Date();
+const formatoFecha = format(fecha, "do MMMM yyyy");
+fechaFormateada.value = formatoFecha;
+});
+
+
 </script>
+
+<style>
+.dateFormat {
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+ padding: 4% 20%;
+ font-size: 1rem;
+ text-align: center;
+
+}
+
+@media (max-width: 768px){
+.dateFormat {
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+ padding: 7.5% 20%;
+ font-size: 0.75rem;
+ text-align: center;
+
+}
+};
+</style>
 
 <!--
 **Hints**

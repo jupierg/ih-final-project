@@ -109,6 +109,23 @@ const signUp = async () => {
 </script>
 
 <style>
+.header-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.input-field-label {
+  font-size: 0.75rem;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  display: grid;
+}
+
 @media (max-width: 768px){
 .header-description {
   display: flex;

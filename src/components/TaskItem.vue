@@ -1,16 +1,16 @@
 <template>
-  <div class="container">
+  <div class="task-card">
     <h3 :class="['task-added', { crossed: task.is_complete }]">{{ editedTitle || task.title }}</h3>
     <h3 :class="['task-added', { crossed: task.is_complete }]">{{ editedDescription || task.description }}</h3>
-    <button @click="deleteTask"> x </button>
-    <button :class="{ crossed: task.is_complete }" @click="completeToggle">
+    <button @click="deleteTask" class="delete-button"> x </button>
+    <button :class="['complete-button', { crossed: task.is_complete }]" @click="completeToggle">
       ✓
     </button>
-    <button @click="editToggle">Edit</button>
+    <button @click="editToggle" class="edit-button">Edit</button>
     <div v-if="updateInput && task.id === selectedTaskId">
       <input type="text" v-model="editedTitle" placeholder="New title" />
       <input type="text" v-model="editedDescription" placeholder="New description" />
-      <button @click="updateTask">Update</button>
+      <button @click="updateTask" class="update-button">Update</button>
       <p v-if="error" class="error-message">{{ error }}</p>
     </div>
   </div>
@@ -78,21 +78,132 @@ const updateTask = async () => {
 </script>
 
 <style>
-@media (max-width: 768px){
+.task-card {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 100;
+  background-color: #F2F2F2;
+  margin: 4% 7.5%;
+  padding: 3%;
+  border-radius: 8%;
+}
 
 .crossed {
   text-decoration: line-through;
   color: darkgray;
 }
-.container {
-  background-color: bisque;
+
+.task-added {
+  color: black;
+}
+
+.complete-button {
+  height: 35px;
+  width: 35px;
+  border-radius: 100%;
+  margin: 2.5%;
+  color: white;
+  border: none;
+  font-size: 0.75rem;
+  background-color: #46A997;
+}
+
+.delete-button {
+  height: 35px;
+  width: 35px;
+  border-radius: 100%;
+  margin: 2.5%;
+  color: white;
+  border: none;
+  font-size: 0.75rem;
+  background-color: #CB7B7A;
+}
+
+.edit-button {
+  height: 35px;
+  width: 35px;
+  border-radius: 100%;
+  margin: 2.5%;
+  color: white;
+  border: none;
+  font-size: 0.75rem;
+  background-color: #CCA45F;
+}
+
+.update-button {
+  border-radius: 8%;
+  padding: 3%;
+  margin: 2.5%;
+  color: white;
+  border: none;
+  font-size: 0.75rem;
+  background-color: #CCA45F;
+}
+
+@media (max-width: 768px){
+.task-card {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 100;
+  background-color: #F2F2F2;
+  margin: 4% 7.5%;
+  padding: 3%;
+  border-radius: 8%;
+}
+
+.crossed {
+  text-decoration: line-through;
+  color: darkgray;
 }
 
 .task-added {
   color: black;
 }
+
+.complete-button {
+  height: 35px;
+  width: 35px;
+  border-radius: 100%;
+  margin: 2.5%;
+  color: white;
+  border: none;
+  font-size: 0.75rem;
+  background-color: #46A997;
 }
+
+.delete-button {
+  height: 35px;
+  width: 35px;
+  border-radius: 100%;
+  margin: 2.5%;
+  color: white;
+  border: none;
+  font-size: 0.75rem;
+  background-color: #CB7B7A;
+}
+
+.edit-button {
+  height: 35px;
+  width: 35px;
+  border-radius: 100%;
+  margin: 2.5%;
+  color: white;
+  border: none;
+  font-size: 0.75rem;
+  background-color: #CCA45F;
+}
+
+.update-button {
+  border-radius: 8%;
+  padding: 3%;
+  margin: 2.5%;
+  color: white;
+  border: none;
+  font-size: 0.75rem;
+  background-color: #CCA45F;
+}
+
+};
 </style>
 
 

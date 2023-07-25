@@ -2,7 +2,7 @@
   <nav>
     <!-- <PersonalRouter :route="route" :buttonText="buttonText" class="logo-link"/> -->
     <router-link to="/" class="navLink">
-    <img class="nav-logo" src="../assets/letrablanca.png">
+    <img class="nav-logo" src="../assets/todo..png">
     </router-link>
 
     <ul>
@@ -11,7 +11,7 @@
         </li> -->
 
         <li>
-          <router-link to="/account" class="navLink">Your Account</router-link>
+          <router-link to="/account" class="navLink"><img class="sign-out-logo" src="../assets/usercincuenta.png"></router-link>
         </li>
     </ul>
 
@@ -24,7 +24,7 @@
           <!-- <button @click="signOut" class="button">
             <img class="sign-in-logo" src="../assets/logout.png">
           </button> -->
-          <img @click="signOut" class="sign-out-logo" src="../assets/logout.png">
+          <img @click="signOut" class="sign-out-logo" src="../assets/logoutcincuenta.png">
         </li>
       </ul>
     </div>
@@ -62,6 +62,63 @@ const signOut = async () => {
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-logo {
+  width: 100px;
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-size: 0.75rem;
+}
+
+nav {
+  background-color: #46A997;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 100px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav ul {
+  list-style: none;
+  padding-inline-start: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* .user-log-out {
+  display: flex;
+  flex-direction: column;
+} */
+.welcome {
+  display: visible;
+  font-size: 1rem;
+}
+
+.button {
+  border-style: none;
+  color: rgb(72, 172, 152);
+  background-color: white;
+  padding: 1rem 2rem;
+}
+
+.sign-out-logo {
+  max-width:45px;
+}
+
+.sign-out-logo:hover {
+cursor: pointer
+}
+
 @media (max-width: 768px){
 * {
   margin: 0;
@@ -70,12 +127,12 @@ const signOut = async () => {
 
 .nav-logo {
   width: 100px;
-
 }
 
 .navLink {
   color: white;
   text-decoration: none;
+  font-size: 0.75rem;
 }
 
 nav {
@@ -112,7 +169,7 @@ nav ul {
 }
 
 .sign-out-logo {
-  max-width:60px;
+  max-width:45px;
 }
 
 .sign-out-logo:hover {
