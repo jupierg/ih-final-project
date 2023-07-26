@@ -5,6 +5,7 @@
 </template>
 
 <script setup>
+
 </script>
 
 <style>
@@ -14,16 +15,16 @@
 };
 
 .container {
-
+  bottom: 0;
+  background-color: rgba(70, 169, 151, 0.5);
 }
 
 h6 {
-  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   text-align: center;
-  background-color: rgba(70, 169, 151, 0.5);
+  background-color: rgba(70, 169, 151);
   padding: 20px 0;
   font-size: 1rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -41,12 +42,11 @@ h6 {
 }
 
 h6 {
-  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   text-align: center;
-  background-color: rgba(70, 169, 151, 0.5);
+  background-color: rgba(70, 169, 151);
   padding: 10px 0;
   font-size: 12px;
   color: white;

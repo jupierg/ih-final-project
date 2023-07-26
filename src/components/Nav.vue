@@ -2,7 +2,7 @@
   <nav>
     <!-- <PersonalRouter :route="route" :buttonText="buttonText" class="logo-link"/> -->
     <router-link to="/" class="navLink">
-    <img class="nav-logo" src="../assets/todo..png">
+    <img class="nav-logo" src="../assets/logocincuentablanco.png">
     </router-link>
 
     <ul>
@@ -10,21 +10,23 @@
           <router-link to="/" class="navLink">Task Manager</router-link>
         </li> -->
 
+
+        <li class="log-out-welcome navLink">
+          <p class="welcome">Welcome, <strong> {{ userEmail }} </strong></p>
+        </li>
         <li>
-          <router-link to="/account" class="navLink"><img class="sign-out-logo" src="../assets/usercincuenta.png"></router-link>
+          <router-link to="/account" class="navLink"><img class="sign-out-logo" src="../assets/usercincuentablanco.png"></router-link>
         </li>
     </ul>
 
     <div>
       <ul class="user-log-out">
-        <li class="log-out-welcome navLink">
-          <p class="welcome">Welcome, <strong> {{ userEmail }} </strong></p>
-        </li>
+
         <li>
           <!-- <button @click="signOut" class="button">
             <img class="sign-in-logo" src="../assets/logout.png">
           </button> -->
-          <img @click="signOut" class="sign-out-logo" src="../assets/logoutcincuenta.png">
+          <img @click="signOut" class="sign-out-logo" src="../assets/logoutcincuentablanco.png">
         </li>
       </ul>
     </div>
@@ -78,7 +80,7 @@ const signOut = async () => {
 }
 
 nav {
-  background-color: #46A997;
+  background-color: white;
   display: flex;
   width: 100%;
   justify-content: space-around;
@@ -102,6 +104,7 @@ nav ul {
 .welcome {
   display: visible;
   font-size: 1rem;
+  color: rgb(72, 172, 152);
 }
 
 .button {
@@ -136,7 +139,7 @@ cursor: pointer
 }
 
 nav {
-  background-color: #46A997;
+  background-color: white;
   display: flex;
   width: 100%;
   justify-content: space-around;

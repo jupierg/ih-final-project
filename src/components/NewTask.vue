@@ -8,7 +8,7 @@
           <input type="text" placeholder="Add a Task Title" v-model="name">
       </div>
       <div class="input-field-home">
-          <input type="text" placeholder="Add a Task Description" v-model="description">
+          <input class="input-text" type="text" placeholder="Add a Task Description" v-model="description">
       </div>
       <button @click="addTask" class="add-task">Add your task</button>
   </div>
@@ -89,10 +89,15 @@ h2 {
 }
 
 .input-field-home input {
-  background-color: #A3D9C9;
-  min-width: 50%;
+  background-color: #F2F2F2;
+  color: black;
+  min-width: 72%;
   border-radius: 8%;
   margin-left: 7.5%;
+}
+
+::placeholder {
+  color: grey;
 }
 
 .add-task {
@@ -124,10 +129,15 @@ h2 {
 }
 
 .input-field-home input {
-  background-color: #A3D9C9;
+  background-color: #F2F2F2;
+  color: black;
   min-width: none;
   border-radius: 8%;
   margin-left: 7.5%;
+}
+
+.input-text {
+  min-height: 20%;
 }
 
 .add-task {
