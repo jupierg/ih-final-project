@@ -1,7 +1,7 @@
 <template>
   <div class="task-card">
-    <h3 :class="['task-added', { crossed: task.is_complete }]">{{ editedTitle || task.title }}</h3>
-    <h3 :class="['task-added', { crossed: task.is_complete }]">{{ editedDescription || task.description }}</h3>
+    <h3 :class="['task-added', 'task-added-title', { crossed: task.is_complete }]">{{ editedTitle || task.title }}</h3>
+    <h3 :class="['task-added', 'task-added-text', { crossed: task.is_complete }]">{{ editedDescription || task.description }}</h3>
     <button @click="deleteTask" class="delete-button"> x </button>
     <button :class="['complete-button', { crossed: task.is_complete }]" @click="completeToggle">
       ✓
@@ -97,11 +97,20 @@ const updateTask = async () => {
   color: black;
 }
 
+.task-added-title {
+  font-size: 0.95rem;
+}
+
+.task-added-text {
+  padding-top: 2%;
+  font-size: 0.85rem;
+}
+
 .complete-button {
   height: 35px;
   width: 35px;
   border-radius: 100%;
-  margin: 2.5%;
+  margin: 0% 2.5% 0.5% 2.5%;
   color: white;
   border: none;
   font-size: 0.75rem;
@@ -112,7 +121,8 @@ const updateTask = async () => {
   height: 35px;
   width: 35px;
   border-radius: 100%;
-  margin: 2.5%;
+  margin: 0% 2.5% 0.5% 2.5%;
+  margin-left: 75%;
   color: white;
   border: none;
   font-size: 0.75rem;
@@ -123,7 +133,7 @@ const updateTask = async () => {
   height: 35px;
   width: 35px;
   border-radius: 100%;
-  margin: 2.5%;
+  margin: 0% 2.5% 0.5% 2.5%;
   color: white;
   border: none;
   font-size: 0.75rem;
@@ -160,6 +170,15 @@ const updateTask = async () => {
   color: black;
 }
 
+.task-added-title {
+  font-size: 0.85rem;
+}
+
+.task-added-text {
+  padding-top: 2%;
+  font-size: 0.75rem;
+}
+
 .complete-button {
   height: 35px;
   width: 35px;
@@ -178,6 +197,7 @@ const updateTask = async () => {
   margin: 2.5%;
   color: white;
   border: none;
+  margin-left: 45%;
   font-size: 0.75rem;
   background-color: #CB7B7A;
 }

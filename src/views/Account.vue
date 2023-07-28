@@ -1,26 +1,29 @@
 <template>
   <Nav />
   <div class="user-logo">
-  <div>
-    <img :src="avatar_url ? avatar_url : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'" alt="Profile picture">
+      <img :src="avatar_url ? avatar_url : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'" alt="Profile picture">
+      <h1>Login: {{ userEmail }}</h1>
   </div>
-  <div>
-     <h1>Login: {{ userEmail }}</h1>
-     <h1>Name: {{username}}</h1>
+  <div class="container-motivation">
+
+    <h1 class="motivation"> What´s on your mind today? </h1>
+    <input class="input-motivation" type="text" placeholder="..." v-model="nametext" >
+
+    <button @click="updateInfo" class="update-button">Update</button>
+    <p class="user-motivation"> {{ motivation }}</p>
   </div>
 
-  </div>
+
   <div class="recommend-div">
-  <h2 class="recommend">Recommend it to your friends</h2>
-  <p class="recommend">Click the link below to send an email recommending our website to your friends:
-  <a class="send-mail" href="mailto:?subject=Check%20out%20this%20website&body=Hey%20friends,%20I%20wanted%20to%20share%20this%20awesome%20website%20with%20you:%20https%3A%2F%2Fwww.example.com">Send Email</a>
-</p>
-</div>
+    <p class="recommend"> Recommend todo App </p>
+     <a class="send-mail" href="mailto:?subject=Check%20out%20this%20website&body=Hey%20friends,%20I%20wanted%20to%20share%20this%20awesome%20website%20with%20you:%20https%3A%2F%2Fwww.example.com"><img src="../assets/mail.png" alt="Mail icon"></a>
+  </div>
+
 </template>
 
 <script setup>
   import { supabase } from '../supabase'
-  import { onMounted, ref, toRefs } from 'vue'
+  import { onMounted, ref, reactive, toRefs } from 'vue'
   import { useUserStore } from "../stores/user";
   import Nav from '../components/Nav.vue';
 
@@ -56,36 +59,141 @@
   const getUser = useUserStore().user;
   const userEmail = getUser.email;
 
+  const nametext = ref("");
+  const motivation = ref("");
+
+  const updateInfo = () => {
+  motivation.value = nametext.value;
+  nametext.value = "";
+};
+
 </script>
 
 <style>
 img {
-  width: 200px;
+  width: 150px;
   border-radius: 50%;
+}
+
+h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
 }
 
 .user-logo {
   display: flex;
   position: center;
-  margin: 5%;
+  margin: 2% 15%;
+  align-items: center;
+}
+
+.send-mail:hover {
+cursor: pointer;
+width: 50;
+}
+
+.send-mail img {
+width: 50px;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+.container-motivation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: antiquewhite;
+  margin: 5% 15%;
+  padding: 2% 2% 0% 2%;
+}
+
+.user-motivation {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.8rem;
+}
+
+.input-motivation {
+  min-width: 80%;
+  min-height: 40px;
+}
+
+.recommend-div {
+  display: flex;
+  padding: 0% 10%;
+  align-items: center;
+  justify-content: center;
 }
 
 .recommend {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px){
+img {
+  width: 50px;
+  border-radius: 50%;
+}
+
+h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 0.8rem;
+}
+
+.user-logo {
+  display: flex;
+  position: center;
+  margin: 5% 7.5%;
+  align-items: center;
 }
 
 .send-mail:hover {
 cursor: pointer;
 }
 
-.recommend-div {
-display: flex;
-flex-direction: column;
-margin: 10%;
+.send-mail img {
+width: 40px;
 }
 
 h2 {
   font-size: 1rem;
+}
+
+.container-motivation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: antiquewhite;
+  margin: 10% 5%;
+  padding: 2%;
+}
+
+.user-motivation {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.8rem;
+}
+
+.input-motivation {
+  min-width: 80%;
+  min-height: 40px;
+}
+
+.recommend-div {
+  display: flex;
+  padding: 20% 10%;
+  align-items: center;
+  justify-content: center;
+}
+
+.recommend {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.8rem;
+  padding: 2%;
+}
+
 }
 </style>

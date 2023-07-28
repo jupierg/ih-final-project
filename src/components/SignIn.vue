@@ -90,7 +90,7 @@ const togglePassword = (field) => {
 
 .sign-in-logo {
   margin-top: 5%;
-  max-height: 10%;
+  width: 250px;
 }
 
 .container {
@@ -155,8 +155,8 @@ cursor: pointer;
 
 @media (max-width: 768px){
 .sign-in-logo {
-  margin-top: 5%;
-  max-height: 10%;
+  margin-top: 30%;
+  width: 150px;
 }
 
 .container {
@@ -194,7 +194,7 @@ border-radius: 5%;
 
 .question-account {
 margin-top: 10%;
-font-size: 0.75rem;
+font-size: 0.85rem;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -205,7 +205,7 @@ cursor: pointer;
 }
 
 form i {
-  margin-left: 80%;
+  margin-left: 92%;
   margin-top: -17.5%;
   cursor: pointer;
   color: white

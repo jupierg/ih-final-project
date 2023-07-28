@@ -113,6 +113,7 @@ const signUp = async () => {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 10%;
 }
 .input-field-label {
   font-size: 0.75rem;

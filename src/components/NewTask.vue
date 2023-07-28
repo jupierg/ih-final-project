@@ -1,17 +1,19 @@
 <template>
+  <div class="new-task-card">
   <h1>Add a new Task</h1>
   <div v-if="showErrorMessage">
       <p class="error-text">{{ errorMessage }}</p>
   </div>
   <div class="input-fields">
       <div class="input-field-home">
-          <input type="text" placeholder="Add a Task Title" v-model="name">
+          <input class="input-title" type="text" placeholder="Add a Task Title" v-model="name">
       </div>
       <div class="input-field-home">
           <input class="input-text" type="text" placeholder="Add a Task Description" v-model="description">
       </div>
       <button @click="addTask" class="add-task">Add your task</button>
   </div>
+</div>
 </template>
 
 <script setup>
@@ -80,7 +82,8 @@ const addTask = async () => {
 h1{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding-left: 7.5%;
-  font-size: 1rem;
+  font-size: 1.25rem;
+  color: #593639
 }
 
 h2 {
@@ -88,16 +91,47 @@ h2 {
   font-size: 1.5rem;
 }
 
+.error-text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-left: 7.5%;
+  padding-top: 2%;
+  color: #CB7B7A;
+}
+
+.new-task-card {
+  margin-left: 7%;
+  margin-right: 7%;
+  padding-top: 3.5%;
+  margin-bottom: 3%;
+  padding-bottom: 0%;
+  background-color: rgba(203, 123, 122, 0.3);
+}
+
 .input-field-home input {
   background-color: #F2F2F2;
   color: black;
   min-width: 72%;
-  border-radius: 8%;
+  border-radius: 10%;
   margin-left: 7.5%;
+  margin-top: 2%;
+}
+.input-title {
+  height: 10px;
+}
+.input-text {
+  height: 90px;
 }
 
-::placeholder {
-  color: grey;
+.input-title::placeholder {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #8C8C8C;
+  font-size: 0.75rem;
+}
+
+.input-text::placeholder {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #8C8C8C;
+  font-size: 0.75rem;
 }
 
 .add-task {
@@ -105,11 +139,11 @@ h2 {
   font-size: 1rem;
   font-weight: 600;
   color: white;
-  background-color: #46A997;
+  background-color: #A67772;
   padding: 1.5%;
   border: none;
   border-radius: 5%;
-  margin: 3% 0% 3% 50%;
+  margin: 3% 0% 3% 80%;
 }
 
 .add-task:hover {
@@ -128,6 +162,22 @@ h2 {
   font-size: 1.5rem;
 }
 
+.new-task-card {
+  margin-left: 3.5%;
+  margin-right: 3.5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  margin-bottom: 3%;
+  background-color: rgba(203, 123, 122, 0.3);
+}
+
+.error-text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-left: 7.5%;
+  padding-top: 2%;
+  color: #CB7B7A;
+}
+
 .input-field-home input {
   background-color: #F2F2F2;
   color: black;
@@ -136,8 +186,22 @@ h2 {
   margin-left: 7.5%;
 }
 
+.input-title {
+  height: 10px;
+}
+
 .input-text {
-  min-height: 20%;
+  height: 70px;
+}
+
+.input-title::placeholder {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #81848C;
+}
+
+.input-text::placeholder {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #81848C;
 }
 
 .add-task {
@@ -145,11 +209,11 @@ h2 {
   font-size: 0.75rem;
   font-weight: 600;
   color: white;
-  background-color: #46A997;
+  background-color: #A67772;
   padding: 3%;
   border: none;
   border-radius: 8%;
-  margin: 3% 30%;
+  margin: 3% 0% 0% 65%;
 }
 
 .add-task:hover {

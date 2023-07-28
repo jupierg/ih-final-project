@@ -1,10 +1,12 @@
 <template>
   <div class="wrapper">
     <Nav />
-       <p class="dateFormat">Today is <strong>{{ fechaFormateada }}</strong>
+    <div class="date-container">
+      <p class="dateFormat">Today is <strong>{{ fechaFormateada }}</strong>
       <br>
-      Time to task organizing your tasks!
-    </p>
+      Time to task organizing your tasks! </p>
+      <router-link to="/calendar" class="navLink"><img class="sign-out-logo" src="../assets/calendario.png"></router-link>
+    </div>
     <NewTask @nueva-tarea-creada="getTasks"/>
     <h1>Tasks:</h1>
     <TaskItem v-for="task in tasks" :key="task.id" :task="task"  @delete-task="getTasks"/>
@@ -20,6 +22,7 @@ import Nav from '../components/Nav.vue';
 import NewTask from '../components/NewTask.vue';
 import TaskItem from '../components/TaskItem.vue';
 import Footer from '../components/Footer.vue';
+import Calendar from '../components/Calendar.vue';
 
 
 // Variable para guardar las tareas de supabase
@@ -47,21 +50,46 @@ fechaFormateada.value = formatoFecha;
 </script>
 
 <style>
-.dateFormat {
- font-family: Verdana, Geneva, Tahoma, sans-serif;
- padding: 4% 20%;
- font-size: 1rem;
- text-align: center;
+.date-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2% 10%;
 
 }
 
-@media (max-width: 768px){
 .dateFormat {
  font-family: Verdana, Geneva, Tahoma, sans-serif;
- padding: 7.5% 20%;
+ font-size: 1rem;
+ text-align: center;
+}
+
+h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.25rem;
+  color: #593639
+}
+
+
+@media (max-width: 768px){
+
+.date-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dateFormat {
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+ padding: 5%;
  font-size: 0.75rem;
  text-align: center;
+}
 
+h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.25rem;
+  color: #593639
 }
 };
 </style>

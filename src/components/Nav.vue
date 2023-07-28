@@ -9,8 +9,6 @@
         <!-- <li>
           <router-link to="/" class="navLink">Task Manager</router-link>
         </li> -->
-
-
         <li class="log-out-welcome navLink">
           <p class="welcome">Welcome, <strong> {{ userEmail }} </strong></p>
         </li>
