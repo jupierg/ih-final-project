@@ -4,15 +4,30 @@
       <img :src="avatar_url ? avatar_url : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'" alt="Profile picture">
       <h1>Login: {{ userEmail }}</h1>
   </div>
-  <div class="container-motivation">
-
-    <h1 class="motivation"> What´s on your mind today? </h1>
-    <input class="input-motivation" type="text" placeholder="..." v-model="nametext" >
-
-    <button @click="updateInfo" class="update-button">Update</button>
-    <p class="user-motivation"> {{ motivation }}</p>
-  </div>
-
+  <section id="contact-main">
+        <div class="contact-container">
+          <h1 class="contact">Contact Us</h1>
+          <div id="contact-form" class="form-container">
+            <form id="form-message" action="">
+              <label for="name">Full Name *</label>
+              <input id="name" type="text" placeholder="Enter your full name" required="">
+              <div class="email-phone">
+                <div id="email">
+                  <label for="email">Email</label>
+                  <input id="email" type="email" placeholder="Enter your email" required>
+                </div>
+                <div id="phone">
+                  <label for="phone">Phone</label>
+                  <input id="phone" type="text" placeholder="Enter your phone">
+                </div>
+              </div>
+              <label for="message">Message *</label>
+              <textarea placeholder="Write your message here..." maxlength="5000" id="message" required></textarea>
+              <button type="submit" class="add-task" id="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+    </section>
 
   <div class="recommend-div">
     <p class="recommend"> Recommend todo App </p>
@@ -67,6 +82,19 @@
   nametext.value = "";
 };
 
+// let submitButton = document.getElementById("submit");
+//   submitButton.addEventListener("click", () => {
+
+//     let nameInput = document.getElementById("name").value;
+
+//     if (nameInput === "Ironhack") {
+//     alert("Usted no puede ser Ironhack, porque yo soy Ironhack");
+
+//   }  else {
+//     alert("Form submitted!");
+//   }}
+//   );
+
 </script>
 
 <style>
@@ -87,6 +115,110 @@ h1 {
   align-items: center;
 }
 
+.contact-container > h1 {
+  margin: 2% 0% 2% 5%;
+  font-size: 2rem;
+}
+
+#form-message {
+  display: flex;
+  flex-direction: column;
+  margin: 2% 10%;
+}
+
+#form-message > label {
+  color:#6e738c;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+#form-message > input {
+  background-color: #6b708d1a;
+  border: none;
+  font-size: 1rem;
+  height: 50px;
+  margin-bottom: 1rem;
+  padding: 10px 10px;
+}
+
+#form-message > textarea {
+  background-color: #6b708d1a;
+  border: none;
+  font-size: 1rem;
+  height: 200px;
+  margin-bottom: 1rem;
+  padding: 10px 10px;
+  font-family: "Roboto", sans-serif;
+}
+
+.email-phone {
+  display: flex;
+  flex-direction: space-between;
+  gap: 12.5px;
+}
+
+.email-phone > label {
+  color:#6e738c;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.email-phone > input {
+  background-color: #6b708d1a;
+  border: none;
+  font-size: 1rem;
+  height: 50px;
+  margin-bottom: 1rem;
+  padding: 7px 7px;
+}
+
+#email {
+  width: 100%;
+}
+
+#phone {
+  width: 100%;
+}
+
+#email, #phone {
+  display: flex;
+  flex-direction: column;
+}
+
+#email > label {
+  color:#6e738c;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+#email > input {
+  background-color: #6b708d1a;
+  border: none;
+  font-size: 1rem;
+  height: 50px;
+  margin-bottom: 1rem;
+  padding: 7px 7px;
+}
+
+#phone > label {
+  color:#6e738c;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+#phone > input {
+  background-color: #6b708d1a;
+  border: none;
+  font-size: 1rem;
+  height: 50px;
+  margin-bottom: 1rem;
+  padding: 7px 7px;
+}
+
+#submit {
+  margin-bottom: 8rem;
+}
+
 .send-mail:hover {
 cursor: pointer;
 width: 50;
@@ -100,24 +232,6 @@ h2 {
   font-size: 1rem;
 }
 
-.container-motivation {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: antiquewhite;
-  margin: 5% 15%;
-  padding: 2% 2% 0% 2%;
-}
-
-.user-motivation {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 0.8rem;
-}
-
-.input-motivation {
-  min-width: 80%;
-  min-height: 40px;
-}
 
 .recommend-div {
   display: flex;
@@ -180,6 +294,110 @@ h2 {
 .input-motivation {
   min-width: 80%;
   min-height: 40px;
+}
+
+.contact-container > h1 {
+  margin: 60px 0px 35px 14px;
+  font-size: 2rem;
+}
+
+#form-message {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 14px 33px 14px;
+}
+
+#form-message > label {
+  color:#6e738c;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+#form-message > input {
+  background-color: #6b708d1a;
+  border: none;
+  font-size: 1rem;
+  height: 75px;
+  margin-bottom: 1.5rem;
+  padding: 10px 10px;
+}
+
+#form-message > textarea {
+  background-color: #6b708d1a;
+  border: none;
+  font-size: 1rem;
+  height: 300px;
+  margin-bottom: 1.5rem;
+  padding: 10px 10px;
+  font-family: "Roboto", sans-serif;
+}
+
+.email-phone {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.email-phone > label {
+  color:#6e738c;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.email-phone > input {
+  background-color: #6b708d1a;
+  border: none;
+  font-size: 1rem;
+  height: 75px;
+  margin-bottom: 1.5rem;
+  padding: 10px 10px;
+}
+
+#email {
+  width: 100%;
+}
+
+#phone {
+  width: 100%;
+}
+
+#email, #phone {
+  display: flex;
+  flex-direction: column;
+}
+
+#email > label {
+  color:#6e738c;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+#email > input {
+  background-color: #6b708d1a;
+  border: none;
+  font-size: 1rem;
+  height: 75px;
+  margin-bottom: 1.5rem;
+  padding: 10px 10px;
+}
+
+#phone > label {
+  color:#6e738c;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+#phone > input {
+  background-color: #6b708d1a;
+  border: none;
+  font-size: 1rem;
+  height: 75px;
+  margin-bottom: 1.5rem;
+  padding: 10px 10px;
+}
+
+#submit {
+  margin-bottom: 8rem;
 }
 
 .recommend-div {
