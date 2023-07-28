@@ -108,6 +108,10 @@ h1 {
   font-size: 1rem;
 }
 
+label {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .user-logo {
   display: flex;
   position: center;
@@ -116,7 +120,7 @@ h1 {
 }
 
 .contact-container > h1 {
-  margin: 2% 0% 2% 5%;
+  margin: 2% 5% 2% 5%;
   font-size: 2rem;
 }
 
@@ -129,7 +133,6 @@ h1 {
 #form-message > label {
   color:#6e738c;
   font-size: 1rem;
-  margin-bottom: 1rem;
 }
 
 #form-message > input {
@@ -146,9 +149,10 @@ h1 {
   border: none;
   font-size: 1rem;
   height: 200px;
+  margin-top: 1rem;
   margin-bottom: 1rem;
   padding: 10px 10px;
-  font-family: "Roboto", sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .email-phone {
@@ -173,11 +177,11 @@ h1 {
 }
 
 #email {
-  width: 100%;
+  width: 90%;
 }
 
 #phone {
-  width: 100%;
+  width: 90%;
 }
 
 #email, #phone {
@@ -236,6 +240,7 @@ h2 {
 .recommend-div {
   display: flex;
   padding: 0% 10%;
+  margin-bottom: 2%;
   align-items: center;
   justify-content: center;
 }
@@ -273,50 +278,28 @@ cursor: pointer;
 width: 40px;
 }
 
-h2 {
-  font-size: 1rem;
-}
-
-.container-motivation {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: antiquewhite;
-  margin: 10% 5%;
-  padding: 2%;
-}
-
-.user-motivation {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 0.8rem;
-}
-
-.input-motivation {
-  min-width: 80%;
-  min-height: 40px;
-}
-
 .contact-container > h1 {
-  margin: 60px 0px 35px 14px;
-  font-size: 2rem;
+  margin: 30px 0px 35px 0px;
+  font-size: 1.5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #form-message {
   display: flex;
   flex-direction: column;
-  margin: 20px 14px 33px 14px;
+  margin: 20px 14px 0px 14px;
 }
 
 #form-message > label {
   color:#6e738c;
-  font-size: 1rem;
+  font-size: 0.85rem;
   margin-bottom: 1rem;
 }
 
 #form-message > input {
   background-color: #6b708d1a;
   border: none;
-  font-size: 1rem;
+  font-size: 0.85rem;
   height: 75px;
   margin-bottom: 1.5rem;
   padding: 10px 10px;
@@ -325,11 +308,11 @@ h2 {
 #form-message > textarea {
   background-color: #6b708d1a;
   border: none;
-  font-size: 1rem;
+  font-size: 0.85rem;
   height: 300px;
   margin-bottom: 1.5rem;
-  padding: 10px 10px;
-  font-family: "Roboto", sans-serif;
+  padding: 2% 2%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .email-phone {
@@ -340,17 +323,17 @@ h2 {
 
 .email-phone > label {
   color:#6e738c;
-  font-size: 1rem;
+  font-size: 0.85rem;
   margin-bottom: 1.5rem;
 }
 
 .email-phone > input {
   background-color: #6b708d1a;
   border: none;
-  font-size: 1rem;
+  font-size: 0.85rem;
   height: 75px;
   margin-bottom: 1.5rem;
-  padding: 10px 10px;
+  padding: 0% 2%;
 }
 
 #email {
@@ -368,7 +351,7 @@ h2 {
 
 #email > label {
   color:#6e738c;
-  font-size: 1rem;
+  font-size: 0.85rem;
   margin-bottom: 1.5rem;
 }
 
@@ -378,12 +361,12 @@ h2 {
   font-size: 1rem;
   height: 75px;
   margin-bottom: 1.5rem;
-  padding: 10px 10px;
+  padding: 2% 2%;
 }
 
 #phone > label {
   color:#6e738c;
-  font-size: 1rem;
+  font-size: 0.85rem;
   margin-bottom: 1.5rem;
 }
 
@@ -393,16 +376,12 @@ h2 {
   font-size: 1rem;
   height: 75px;
   margin-bottom: 1.5rem;
-  padding: 10px 10px;
-}
-
-#submit {
-  margin-bottom: 8rem;
+  padding: 2% 2%;
 }
 
 .recommend-div {
   display: flex;
-  padding: 20% 10%;
+  padding: 10% 10%;
   align-items: center;
   justify-content: center;
 }
