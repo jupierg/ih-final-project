@@ -1,7 +1,7 @@
 <template>
   <Nav />
   <div class="user-logo">
-      <img :src="avatar_url ? avatar_url : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'" alt="Profile picture">
+      <img class="profile-img" :src="avatar_url ? avatar_url : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'" alt="Profile picture">
       <h1>Login: {{ userEmail }}</h1>
   </div>
   <section id="contact-main">
@@ -85,7 +85,7 @@
 </script>
 
 <style>
-.user-logo img {
+.profile-img {
   width: 150px;
   border-radius: 50%;
 }
@@ -240,7 +240,7 @@ h2 {
 }
 
 @media (max-width: 768px){
-img {
+.profile-img {
   width: 50px;
   border-radius: 50%;
 }
