@@ -82,23 +82,10 @@
   nametext.value = "";
 };
 
-// let submitButton = document.getElementById("submit");
-//   submitButton.addEventListener("click", () => {
-
-//     let nameInput = document.getElementById("name").value;
-
-//     if (nameInput === "Ironhack") {
-//     alert("Usted no puede ser Ironhack, porque yo soy Ironhack");
-
-//   }  else {
-//     alert("Form submitted!");
-//   }}
-//   );
-
 </script>
 
 <style>
-img {
+.user-logo img {
   width: 150px;
   border-radius: 50%;
 }

@@ -67,7 +67,8 @@ fechaFormateada.value = formatoFecha;
 h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1.25rem;
-  color: #593639
+  color: #593639;
+  margin-left: 4.5%;
 }
 
 

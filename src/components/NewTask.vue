@@ -155,6 +155,7 @@ h1{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding-left: 7.5%;
   font-size: 1rem;
+  color: #593639;
 }
 
 h2 {
